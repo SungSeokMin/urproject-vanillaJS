@@ -5,6 +5,7 @@ body {
 
 .inner-container {
   width: 1500px;
+  height: 100%;
   margin: auto;
 }
 
@@ -194,11 +195,27 @@ header {
 .content-container {
   width: 100%;
   height: 100vh;
-  margin-top: 150px;
+  margin-top: 50px;
+  padding-top: 80px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-columns: minmax(316px, 316px);
   gap: 40px;
+  position: relative;
+}
+
+.content-container > .write--btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 10px;
+  font-size: 20px;
+  background: none;
+  text-decoration: none;
+  border: 1px solid #6c63ff;
+  border-radius: 4px;
+  color: #6c63ff;
+  cursor: pointer;
 }
 
 .content-container > .post {
@@ -242,4 +259,57 @@ header {
   margin-left: 10px;
   height: 10%;
   font-size: 14px;
+}
+
+/* CreateBoard */
+
+.write-board-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.write-board-container > .write-title > textarea {
+  width: 500px;
+  height: 80px;
+  border: none;
+  font-size: 36px;
+  overflow: hidden;
+  resize: none;
+  margin-top: 40px;
+}
+
+.write-board-container > .write-title > textarea:focus {
+  outline: none;
+}
+
+.write-board-container > .underline {
+  width: 150px;
+  height: 3px;
+  margin-bottom: 50px;
+  background-color: #aeaafc;
+}
+
+.write-board-container > .button-items {
+  display: flex;
+  margin-top: 30px;
+}
+
+.write-board-container > .button-items > .image_inputType_file {
+  display: none;
+}
+
+.write-board-container > .button-items > button {
+  padding: 10px 14px;
+  background-color: white;
+  border: 1px solid #6c63ff;
+  color: #6c63ff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.write-board-container > .button-items > .check--btn {
+  margin-left: 20px;
 }
