@@ -1,0 +1,24 @@
+{
+  "name": "urproject-vanilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npx json-server ./data.json --port 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SungSeokMin/urproject-vanillaJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SungSeokMin/urproject-vanillaJS/issues"
+  },
+  "homepage": "https://github.com/SungSeokMin/urproject-vanillaJS#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
