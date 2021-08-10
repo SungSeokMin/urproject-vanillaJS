@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/ee2353f8e7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../CSS/index.css" />
+    <!-- summernote -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div class="inner-container">
+      <div class="write-board-container">
+        <div class="write-title">
+          <textarea placeholder="제목을 작성해주세요." class="title-input"></textarea>
+        </div>
+        <div class="underline"></div>
+        <div class="write-desc">
+          <textarea id="summernote"></textarea>
+        </div>
+        <div class="button-items">
+          <input type="file" id="real-input" class="image_inputType_file" accept="img/*" />
+          <button class="img-upload">이미지 업로드</button>
+          <button class="check--btn">확인</button>
+        </div>
+      </div>
+    </div>
+    <script src="../JS/Board/createPost.js"></script>
+  </body>
+</html>
