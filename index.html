@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/ee2353f8e7.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./JS/Modal.js"></script>
     <link rel="stylesheet" href="./CSS/reset.css" />
     <link rel="stylesheet" href="./CSS/index.css" />
-
     <title>urproject</title>
   </head>
   <body>
@@ -30,10 +30,10 @@
         </div>
       </header>
       <!-- SignIn Modal -->
-      <div id="signinModal"></div>
+      <div id="signinModal" include-html="signinModal.html"></div>
 
       <!-- SignUp Modal -->
-      <div id="signupModal"></div>
+      <div id="signupModal" include-html="signupModal.html"></div>
 
       <!-- Content -->
       <div class="content-container">
@@ -43,7 +43,10 @@
     </div>
     <!-- Fotter -->
     <!-- JavaScript -->
-    <script src="./JS/Modal.js"></script>
+    <script>
+      includeHTML();
+    </script>
+
     <script src="./JS/Header.js"></script>
     <script src="./JS/Board/makePostUI.js"></script>
   </body>

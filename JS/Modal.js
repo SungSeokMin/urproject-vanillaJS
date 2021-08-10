@@ -1,20 +1,21 @@
-console.log('modal');
-
-function includeHTML(divContainer, urlHTML) {
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4) {
-      if (this.status == 200) {
-        divContainer.innerHTML = this.responseText;
-      }
-      if (this.status == 404) {
-        divContainer.innerHTML = 'Page not found.';
-      }
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  z = document.getElementsByTagName('*');
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    file = elmnt.getAttribute('include-html');
+    if (file) {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          elmnt.innerHTML = this.responseText;
+          elmnt.removeAttribute('include-html');
+          includeHTML();
+        }
+      };
+      xhttp.open('GET', file, true);
+      xhttp.send();
+      return;
     }
-  };
-  xhttp.open('GET', urlHTML, true);
-  xhttp.send();
+  }
 }
-
-includeHTML(document.querySelector('#signinModal'), '/signInModal.html');
-includeHTML(document.querySelector('#signupModal'), '/signUpModal.html');
