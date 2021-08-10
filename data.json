@@ -23,6 +23,18 @@
       "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
       "like": 4
+    },
+    {
+      "id": 5,
+      "title": "테스트 입니다.",
+      "content": "<p>테스트 입니다 !!</p>",
+      "like": 0
+    },
+    {
+      "id": 6,
+      "title": "안녕하세요",
+      "content": "<p>안ㄴ여하세요</p>",
+      "like": 0
     }
   ]
 }

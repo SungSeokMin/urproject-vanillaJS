@@ -1,3 +1,5 @@
+console.log('header');
+
 //* 검색 버튼에 관한 함수
 
 const searchBar = document.querySelector('.search-txt');

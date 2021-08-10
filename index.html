@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./CSS/reset.css" />
     <link rel="stylesheet" href="./CSS/index.css" />
+
     <title>urproject</title>
   </head>
   <body>
@@ -29,51 +30,11 @@
         </div>
       </header>
       <!-- SignIn Modal -->
-      <div class="modal-container" id="signin" style="display: none">
-        <div class="login-box">
-          <div class="img-container">
-            <img src="./images/login.svg" alt="login" />
-          </div>
-          <div class="input-container">
-            <i class="fas fa-times" id="signin-close"></i>
+      <div id="signinModal"></div>
 
-            <span>로그인</span>
-
-            <div class="info-container">
-              <b>E-mail</b>
-              <input type="text" />
-              <b>Password</b>
-              <input type="text" />
-              <button class="signin--btn">로그인</button>
-            </div>
-
-            <div class="move-signup-container">
-              <span>아직 회원이 아니신가요? </span><button class="move-signup">회원가입</button>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- SignUp Modal -->
-      <div class="modal-container" id="signup" style="display: none">
-        <div class="login-box">
-          <div class="img-container">
-            <img src="./images/welcome.svg" alt="login" />
-          </div>
-          <div class="input-container">
-            <i class="fas fa-times" id="signup-close"></i>
+      <div id="signupModal"></div>
 
-            <span>회원가입</span>
-
-            <div class="info-container">
-              <b>E-mail</b>
-              <input type="text" />
-              <b>Password</b>
-              <input type="text" />
-              <button class="signup--btn">회원가입</button>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- Content -->
       <div class="content-container">
         <a href="./HTML/createboard.html" class="write--btn">글쓰기</a>
@@ -82,6 +43,7 @@
     </div>
     <!-- Fotter -->
     <!-- JavaScript -->
+    <script src="./JS/Modal.js"></script>
     <script src="./JS/Header.js"></script>
     <script src="./JS/Board/makePostUI.js"></script>
   </body>
