@@ -1,0 +1,82 @@
+{
+  "board": [
+    {
+      "id": 1,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반 코드스테이츠와 함께하는 네이버 특별 심화반코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 1
+    },
+    {
+      "id": 2,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 2
+    },
+    {
+      "id": 3,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 3
+    },
+    {
+      "id": 4,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 4
+    },
+    {
+      "id": 5,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 5
+    },
+    {
+      "id": 6,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 6
+    },
+    {
+      "id": 7,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 7
+    },
+    {
+      "id": 8,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반 코드스테이츠와 함께하는 네이버 특별 심화반코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 1
+    },
+    {
+      "id": 9,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 2
+    },
+    {
+      "id": 10,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 3
+    },
+    {
+      "id": 11,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 4
+    },
+    {
+      "id": 12,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 5
+    },
+    {
+      "id": 13,
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "like": 6
+    }
+  ]
+}
