@@ -1,3 +1,13 @@
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.inner-container {
+  width: 1500px;
+  margin: auto;
+}
+
 /* Header */
 
 header {
@@ -8,7 +18,6 @@ header {
 .nav-container {
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid rgb(155, 155, 155);
   display: flex;
   justify-content: space-between;
 }
@@ -16,14 +25,12 @@ header {
 .logo {
   width: 220px;
   height: 100%;
-  margin-left: 150px;
   cursor: pointer;
 }
 
 .right-items {
   display: flex;
   align-items: center;
-  margin-right: 150px;
 }
 
 .search-box {
@@ -109,6 +116,7 @@ header {
 }
 
 .modal-container > .login-box > .img-container {
+  margin-left: 50px;
   width: 40%;
 }
 
@@ -128,7 +136,7 @@ header {
   top: 10px;
   right: 10px;
   font-size: 24px;
-  color: red;
+  color: #b1b1b1;
   cursor: pointer;
 }
 
@@ -179,4 +187,59 @@ header {
   color: #6c63ff;
   font-size: 16px;
   cursor: pointer;
+}
+
+/* Content */
+
+.content-container {
+  width: 100%;
+  height: 100vh;
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-columns: minmax(316px, 316px);
+  gap: 40px;
+}
+
+.content-container > .post {
+  width: 343px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  text-decoration: none;
+  color: black;
+}
+
+.content-container > .post > .img-aria {
+  height: 50%;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.content-container > .post > .img-aria > img {
+  width: 100%;
+  height: 100%;
+}
+
+.content-container > .post > .title-aria {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  height: 25%;
+  font-size: 22px;
+}
+.content-container > .post > .desc-aria {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  height: 15%;
+}
+
+.content-container > .post > .like-aria {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  height: 10%;
+  font-size: 14px;
 }

@@ -4,33 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/ee2353f8e7.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./CSS/reset.css" />
     <link rel="stylesheet" href="./CSS/index.css" />
     <title>urproject</title>
   </head>
   <body>
-    <!-- Header -->
-    <header>
-      <div class="nav-container">
-        <a href="/">
-          <img class="logo" src="./images/urroject-logo.png" alt="메인로고" />
-        </a>
-        <div class="right-items">
-          <div class="search-box">
-            <input class="search-txt" type="text" placeholder="검색어를 입력하세요." />
-            <button class="search--btn" href="#">
-              <i class="fas fa-search"></i>
-            </button>
+    <div class="inner-container">
+      <!-- Header -->
+      <header>
+        <div class="nav-container">
+          <a href="/">
+            <img class="logo" src="./images/urroject-logo.png" alt="메인로고" />
+          </a>
+          <div class="right-items">
+            <div class="search-box">
+              <input class="search-txt" type="text" placeholder="검색어를 입력하세요." />
+              <button class="search--btn" href="#">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <button class="login">로그인</button>
           </div>
-          <button class="login">로그인</button>
         </div>
-      </div>
-    </header>
-    <!-- SignIn Modal -->
-    <div class="modal-container" id="signin" style="display: none;">
-      <div class="login-box">
+      </header>
+      <!-- SignIn Modal -->
+      <div class="modal-container" id="signin" style="display: none">
+        <div class="login-box">
           <div class="img-container">
-            <img src="./images/login.svg" alt="login">
+            <img src="./images/login.svg" alt="login" />
           </div>
           <div class="input-container">
             <i class="fas fa-times" id="signin-close"></i>
@@ -39,9 +41,9 @@
 
             <div class="info-container">
               <b>E-mail</b>
-              <input type="text">
+              <input type="text" />
               <b>Password</b>
-              <input type="text">
+              <input type="text" />
               <button class="signin--btn">로그인</button>
             </div>
 
@@ -49,14 +51,13 @@
               <span>아직 회원이 아니신가요? </span><button class="move-signup">회원가입</button>
             </div>
           </div>
-      </button>
+        </div>
       </div>
-    </div>
-    <!-- SignUp Modal -->
-    <div class="modal-container" id="signup" style="display: none;">
-      <div class="login-box">
+      <!-- SignUp Modal -->
+      <div class="modal-container" id="signup" style="display: none">
+        <div class="login-box">
           <div class="img-container">
-            <img src="./images/welcome.svg" alt="login">
+            <img src="./images/welcome.svg" alt="login" />
           </div>
           <div class="input-container">
             <i class="fas fa-times" id="signup-close"></i>
@@ -65,18 +66,22 @@
 
             <div class="info-container">
               <b>E-mail</b>
-              <input type="text">
+              <input type="text" />
               <b>Password</b>
-              <input type="text">
+              <input type="text" />
               <button class="signup--btn">회원가입</button>
             </div>
           </div>
-      </button>
+        </div>
       </div>
+      <!-- Content -->
+      <div class="content-container">
+        <!-- 게시글을 보여줄 목록 (DOM 조작 / makePost.js) -->
+      </div>
+      <!-- Fotter -->
     </div>
-    <!-- Body -->
-    <!-- Fotter -->
     <!-- JavaScript -->
-    <script src="./JS/Header.js" />
+    <script src="./JS/Header.js"></script>
+    <script src="./JS/Board/makePost.js"></script>
   </body>
 </html>
