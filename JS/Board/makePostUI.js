@@ -28,7 +28,18 @@ const getPost = async () => {
   }
 
   dataLength = data.length;
+
+  const btn = document.querySelectorAll('.post');
+
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener('click', () => {
+      // 해당 id값의 정보를 가지고 html로 보낸다.
+      // html의 상단에 append
+      // window.location.href = '/HTML/Board/DetailBoard.html';
+    });
+  }
 };
+
 getPost();
 
 function makePost(id, title, content, like) {

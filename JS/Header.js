@@ -13,29 +13,29 @@ searchBtn.addEventListener('click', () => {
 
 const loginBtn = document.querySelector('.login');
 
+const signinModal = document.querySelector('#signin');
+const closeSignin = document.querySelector('#signin-close');
+
+const loginIncludeSignup = document.querySelector('.move-signup');
+const signupModal = document.querySelector('#signup');
+
+const closeSignup = document.querySelector('#signup-close');
+
 // 메인 페이지에서 로그인 버튼이 눌렸을 경우
 
 loginBtn.addEventListener('click', () => {
-  const signinModal = document.querySelector('#signin');
-  const closeSignin = document.querySelector('#signin-close');
-
   signinModal.style.display = 'flex';
+});
 
-  closeSignin.addEventListener('click', () => {
-    signinModal.style.display = 'none';
-  });
+closeSignin.addEventListener('click', () => {
+  signinModal.style.display = 'none';
+});
 
-  const loginIncludeSignup = document.querySelector('.move-signup');
-  const signupModal = document.querySelector('#signup');
+loginIncludeSignup.addEventListener('click', () => {
+  signinModal.style.display = 'none';
+  signupModal.style.display = 'flex';
+});
 
-  loginIncludeSignup.addEventListener('click', () => {
-    signinModal.style.display = 'none';
-    signupModal.style.display = 'flex';
-
-    const closeSignup = document.querySelector('#signup-close');
-
-    closeSignup.addEventListener('click', () => {
-      signupModal.style.display = 'none';
-    });
-  });
+closeSignup.addEventListener('click', () => {
+  signupModal.style.display = 'none';
 });
