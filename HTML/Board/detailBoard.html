@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <div class="container">
+        <h3 class="title"></h3>
+        <p class="content"></p>
+        <p class="like"></p>
+    </div>
+    
+    <script>
+        let id = localStorage.getItem('id');
+        let title = localStorage.getItem('title');
+        let content = localStorage.getItem('content');
+        let like = localStorage.getItem('like');
+        console.log(id, title, content, like);
+
+        const titleEL = document.querySelector('.title');
+        const contentEL = document.querySelector('.content');
+        const likeEL = document.querySelector('.like');
+        
+        titleEL.textContent = title;
+        contentEL.innerHTML = content;
+    </script>
+</body>
+</html>
