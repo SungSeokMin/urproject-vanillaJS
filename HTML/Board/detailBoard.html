@@ -4,25 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/ee2353f8e7.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/CSS/reset.css" />
+    <link rel="stylesheet" href="/CSS/index.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <h3 class="title"></h3>
-      <p class="content"></p>
-      <p class="like"></p>
+    <div class="inner-container">
+      <!-- Header -->
+      <div class="nav-container"></div>
+
+      <!-- SignIn Modal -->
+      <div class="modal-container" id="signin" style="display: none"></div>
+
+      <!-- SignUp Modal -->
+      <div class="modal-container" id="signup" style="display: none"></div>
+
+      <div class="container">
+        <h3 class="title"></h3>
+        <p class="content"></p>
+        <p class="like"></p>
+      </div>
     </div>
-
-    <script>
-      const { id, title, content, like } = JSON.parse(localStorage.detailInfo);
-
-      const titleEL = document.querySelector('.title');
-      const contentEL = document.querySelector('.content');
-      const likeEL = document.querySelector('.like');
-
-      titleEL.textContent = title;
-      contentEL.innerHTML = content;
-      likeEL.textContent = `좋아요 ${like}`;
-    </script>
+    <script type="module" src="/JS/Board/detailBoard.js"></script>
   </body>
 </html>
