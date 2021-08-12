@@ -2,8 +2,8 @@
   "board": [
     {
       "id": 1,
-      "title": "코드스테이츠와 함께하는 네이버 특별 심화반 코드스테이츠와 함께하는 네이버 특별 심화반코드스테이츠와 함께하는 네이버 특별 심화반",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
+      "title": "코드스테이츠와 함께하는 네이버 특별 심화반 ",
+      "content": "<p>썸네일 메이커는 '배경색 랜덤 생성과 필드 입력 값을 헤더에 출력하는 정도의 간단한 기술로 무난한 썸네일 정도는 만들 수 있지 않을까' 라는 생각에서 시작됐다. DOM API로 HTML과 CSS 조작하는 것도 배웠는데 쓸모있는 것을 만들어보고 싶었고 아이디어를 실제로 구현하는 연습도 필요했기에 그냥 한 번 만들었다.</p> <p><em>단지 기능을 구현하는 것을 목표로 만들어서 코드 퀄리티는 절대 보장할 수 없다 (심지어 모두 전역 접근 가능). Release Notes 적는법과 배포 방법 조차 모르고 공부 삼아 만들었기 때문에 테스트용 MVP(minimum viable product)로서 의미만 있다. 이 점 감안하여 봐주셨으면 좋겠다.</em></p> ",
       "like": 1
     },
     {
@@ -23,18 +23,6 @@
       "title": "코드스테이츠와 함께하는 네이버 특별 심화반",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatum voluptates incidunt repudiandae! Odit illo aperiam atque, iste animi sequi mollitia labore recusandae nemo, nobis perspiciatis eius, placeat tempora tenetur!",
       "like": 4
-    },
-    {
-      "id": 5,
-      "title": "테스트 입니다.",
-      "content": "<p>테스트 입니다 !!</p>",
-      "like": 0
-    },
-    {
-      "id": 6,
-      "title": "안녕하세요",
-      "content": "<p>안ㄴ여하세요</p>",
-      "like": 0
     }
   ]
 }
