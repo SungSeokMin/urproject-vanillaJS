@@ -82,7 +82,7 @@ header {
   padding: 0 6px;
 }
 
-.right-items > .login {
+.right-items > .login, .right-items > .logout {
   padding: 8px 10px;
   font-size: 20px;
   background: none;
@@ -286,10 +286,10 @@ header {
 }
 
 .write-board-container > .underline {
-  width: 150px;
-  height: 3px;
+  width: 100%;
+  height: 1px;
   margin-bottom: 50px;
-  background-color: #aeaafc;
+  background-color: #c2c2c2;
 }
 
 .write-board-container > .button-items {
@@ -307,10 +307,53 @@ header {
   border: 1px solid #6c63ff;
   color: #6c63ff;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
 }
 
 .write-board-container > .button-items > .check--btn {
   margin-left: 20px;
+}
+
+/* Board Detail */
+
+.detail-container {
+  width: 768px;
+  height: 100%;
+  margin: 100px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-container > .title-detail {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.detail-container > .title-detail > h1 {
+  font-size: 3rem;
+  color: rgb(52, 58, 64);
+  font-weight: 800;
+}
+
+.under_line {
+  width: 100%;
+  height: 3px;
+  background-color: #aeaafc;
+}
+
+.detail-container > .content-detail {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+}
+
+.detail-container > .content-detail > p {
+  font-size: 1.125rem;
+  color: rgb(34, 36, 38);
+  line-height: 1.7;
+  letter-spacing: -0.004em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
