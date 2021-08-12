@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="title"></h3>
+      <p class="content"></p>
+      <p class="like"></p>
+    </div>
+
+    <script>
+      const { id, title, content, like } = JSON.parse(localStorage.detailInfo);
+
+      const titleEL = document.querySelector('.title');
+      const contentEL = document.querySelector('.content');
+      const likeEL = document.querySelector('.like');
+
+      titleEL.textContent = title;
+      contentEL.innerHTML = content;
+      likeEL.textContent = `좋아요 ${like}`;
+    </script>
+  </body>
+</html>

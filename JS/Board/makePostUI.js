@@ -14,7 +14,7 @@ const contentAria = document.querySelector('.content-container');
 let dataLength = 0;
 
 const getPost = async () => {
-  const reqPost = await axios.get('http://localhost:5000/board');
+  const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
 
   const { data } = reqPost;
 
@@ -32,10 +32,12 @@ const getPost = async () => {
   const btn = document.querySelectorAll('.post');
 
   for (let i = 0; i < btn.length; i++) {
-    btn[i].addEventListener('click', () => {
-      // 해당 id값의 정보를 가지고 html로 보낸다.
-      // html의 상단에 append
-      // window.location.href = '/HTML/Board/DetailBoard.html';
+    btn[i].addEventListener('click', async () => {
+      let result = await axios.get(`http://localhost:5000/board/${i + 1}`, { Credential: true });
+
+      const { data } = result;
+
+      localStorage.setItem('detailInfo', JSON.stringify(data));
     });
   }
 };
@@ -45,7 +47,7 @@ getPost();
 function makePost(id, title, content, like) {
   const aTag = document.createElement('a');
   aTag.classList.add('post');
-  aTag.setAttribute('href', '#');
+  aTag.setAttribute('href', '/HTML/Board/detailBoard.html');
   aTag.setAttribute('data-value', id);
 
   const imgAria = document.createElement('div');
