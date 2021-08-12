@@ -3,6 +3,12 @@ function makeHeader() {
   const signinModal = document.querySelector('#signin');
   const signupModal = document.querySelector('#signup');
 
+  const getLoginSession = sessionStorage.getItem('login');
+
+  const checkInfo = getLoginSession ?
+    `<button class="login" style="display: none">로그인</button><button class="logout">로그아웃</button>` 
+  : `<button class="login">로그인</button><button class="logout" style="display: none">로그아웃</button>`
+
   const headerContent = `
     <a href="/">
       <img class="logo" src="/images/urroject-logo.png" alt="메인로고" />
@@ -14,7 +20,7 @@ function makeHeader() {
           <i class="fas fa-search"></i>
         </button>
       </div>
-      <button class="login">로그인</button>
+      ${checkInfo}
 `;
 
   const signinContent = `
