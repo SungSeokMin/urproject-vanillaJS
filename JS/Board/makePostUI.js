@@ -66,7 +66,7 @@ function makePost(id, title, content, like) {
 
   const descAria = document.createElement('div');
   descAria.classList.add('desc-aria');
-  descAria.textContent = content;
+  descAria.innerHTML = content;
 
   const likeAria = document.createElement('div');
   likeAria.classList.add('like-aria');
