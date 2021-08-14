@@ -1,5 +1,5 @@
 const contentAria = document.querySelector('.content-container');
-
+const postAria = document.querySelector('.post-container');
 /*
 - window.innerHeight = 브라우저에서 실제로 표시되고 있는 영역의 높이
 - window.scrollY = 스크롤이 세로로 얼마나 이동했는지 px로 나타냄, 0부터 시작해서 내릴수록 증가
@@ -24,7 +24,7 @@ const getPost = async () => {
     if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
     if (content.length >= 80) content = `${content.substring(0, 80)}...`;
 
-    contentAria.appendChild(makePost(id, title, content, like));
+    postAria.appendChild(makePost(id, title, content, like));
   }
 
   dataLength = data.length;
@@ -46,6 +46,7 @@ getPost();
 
 function makePost(id, title, content, like) {
   const aTag = document.createElement('a');
+
   aTag.classList.add('post');
   aTag.setAttribute('href', '/HTML/Board/detailBoard.html');
   aTag.setAttribute('data-value', id);
