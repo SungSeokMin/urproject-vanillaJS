@@ -3,11 +3,15 @@ function makeHeader() {
   const signinModal = document.querySelector('#signin');
   const signupModal = document.querySelector('#signup');
 
-  const getLoginSession = sessionStorage.getItem('login');
+  const getLoginSession = sessionStorage.getItem('loginInfo');
 
-  const checkInfo = getLoginSession ?
-    `<button class="login" style="display: none">로그인</button><button class="logout">로그아웃</button>` 
-  : `<button class="login">로그인</button><button class="logout" style="display: none">로그아웃</button>`
+  const loginOrLogoutBtn = getLoginSession
+    ? `<button class="login" style="display: none">로그인</button><button class="logout">로그아웃</button>`
+    : `<button class="login">로그인</button><button class="logout" style="display: none">로그아웃</button>`;
+
+  const myPageBtn = getLoginSession
+    ? `<button class="mypage--btn">마이페이지</button>`
+    : `<button class="mypage--btn style="display: none">마이페이지</button>`;
 
   const headerContent = `
     <a href="/">
@@ -20,7 +24,9 @@ function makeHeader() {
           <i class="fas fa-search"></i>
         </button>
       </div>
-      ${checkInfo}
+      ${loginOrLogoutBtn}
+      ${myPageBtn}
+    </div>
 `;
 
   const signinContent = `
@@ -35,9 +41,9 @@ function makeHeader() {
 
         <div class="info-container">
           <b>E-mail</b>
-          <input type="text" />
+          <input type="text" class="email"/>
           <b>Password</b>
-          <input type="text" />
+          <input type="text" class="password"/>
           <button class="signin--btn">로그인</button>
         </div>
 
