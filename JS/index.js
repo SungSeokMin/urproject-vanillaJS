@@ -13,6 +13,10 @@ if (sessionStorage.getItem('loginInfo')) {
 const postContent = document.querySelector('.post-container');
 
 function appendElement(data) {
+  while (postContent.hasChildNodes()) {
+    postContent.removeChild(postContent.firstChild);
+  }
+
   for (let i = 0; i < data.length; i++) {
     let { id, title, content, like } = data[i];
 
@@ -31,10 +35,6 @@ latestBtn.addEventListener('click', async () => {
   const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
   const { data } = reqPost;
 
-  while (postContent.hasChildNodes()) {
-    postContent.removeChild(postContent.firstChild);
-  }
-
   appendElement(data);
 });
 
@@ -47,10 +47,6 @@ recommendBtn.addEventListener('click', async () => {
   const { data } = reqPost;
 
   const recommendSort = data.sort((a, b) => b.like - a.like);
-
-  while (postContent.hasChildNodes()) {
-    postContent.removeChild(postContent.firstChild);
-  }
 
   appendElement(recommendSort);
 });
