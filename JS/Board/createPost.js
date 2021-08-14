@@ -47,9 +47,11 @@ checkBtn.addEventListener('click', async () => {
   const { data } = getPost;
 
   const currentId = data[data.length - 1].id;
+  const { user } = JSON.parse(sessionStorage.getItem('loginInfo'));
 
   const post = {
     id: currentId + 1,
+    nickname: user,
     title: titleInput.value,
     content: descInput.value,
     like: 0,
