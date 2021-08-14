@@ -82,7 +82,8 @@ header {
   padding: 0 6px;
 }
 
-.right-items > .login, .right-items > .logout {
+.right-items > .login,
+.right-items > .logout {
   padding: 8px 10px;
   font-size: 20px;
   background: none;
@@ -90,6 +91,17 @@ header {
   color: #6c63ff;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.right-items > .mypage--btn {
+  padding: 8px 10px;
+  font-size: 20px;
+  background: none;
+  border: 1px solid #6c63ff;
+  color: #6c63ff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
 /* Modal */
@@ -197,11 +209,29 @@ header {
   height: 100vh;
   margin-top: 50px;
   padding-top: 80px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-columns: minmax(316px, 316px);
-  gap: 40px;
   position: relative;
+}
+
+.content-container > .filter-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 10px;
+}
+
+.content-container > .filter-content > button {
+  background: none;
+  border: none;
+  color: #6c63ff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.content-container > .filter-content > .column-link {
+  width: 1px;
+  height: 12px;
+  background-color: #6c63ff;
+  margin: 0 5px;
 }
 
 .content-container > .write--btn {
@@ -218,7 +248,14 @@ header {
   cursor: pointer;
 }
 
-.content-container > .post {
+.content-container > .post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-columns: minmax(316px, 316px);
+  gap: 40px;
+}
+
+.content-container > .post-container > .post {
   width: 343px;
   height: 300px;
   display: flex;
@@ -230,31 +267,31 @@ header {
   z-index: 10;
 }
 
-.content-container > .post > .img-aria {
+.content-container > .post-container > .post > .img-aria {
   height: 50%;
   border-bottom: 1px solid rgb(204, 204, 204);
 }
 
-.content-container > .post > .img-aria > img {
+.content-container > .post-container > .post > .img-aria > img {
   width: 100%;
   height: 100%;
 }
 
-.content-container > .post > .title-aria {
+.content-container > .post-container > .post > .title-aria {
   display: flex;
   align-items: center;
   margin-left: 10px;
   height: 25%;
   font-size: 22px;
 }
-.content-container > .post > .desc-aria {
+.content-container > .post-container > .post > .desc-aria {
   display: flex;
   align-items: center;
   margin-left: 10px;
   height: 15%;
 }
 
-.content-container > .post > .like-aria {
+.content-container > .post-container > .post > .like-aria {
   display: flex;
   align-items: center;
   margin-left: 10px;
