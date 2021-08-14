@@ -63,17 +63,20 @@ myContentBtn.addEventListener('click', async () => {
   const { data } = reqPost;
 
   const myPost = JSON.parse(sessionStorage.getItem('loginInfo'));
-  const { user } = myPost;
-
-  const myPostSort = data.filter((post) => {
-    const { nickname } = post;
-
-    if (user === nickname) return post;
-  });
 
   while (postContent.hasChildNodes()) {
     postContent.removeChild(postContent.firstChild);
   }
 
-  appendElement(myPostSort);
+  if (myPost) {
+    const { user } = myPost;
+
+    const myPostSort = data.filter((post) => {
+      const { nickname } = post;
+
+      if (user === nickname) return post;
+    });
+
+    appendElement(myPostSort);
+  }
 });
