@@ -27,6 +27,7 @@ header {
   width: 220px;
   height: 100%;
   cursor: pointer;
+  border: 1px solid red;
 }
 
 .right-items {
