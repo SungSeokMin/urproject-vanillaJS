@@ -394,3 +394,11 @@ header {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
+
+.moveToTop {
+  position: fixed;
+  bottom: 150px;
+  right: 100px;
+  cursor: pointer;
+  color: #6c63ff;
+}

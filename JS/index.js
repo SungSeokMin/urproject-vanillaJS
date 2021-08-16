@@ -76,3 +76,11 @@ myContentBtn.addEventListener('click', async () => {
     appendElement(myPostSort);
   }
 });
+
+// 맨 위로 버튼
+
+const movetoTop = document.querySelector('.moveToTop');
+
+movetoTop.addEventListener('click', () => {
+  window.scrollTo(0, 0);
+});
