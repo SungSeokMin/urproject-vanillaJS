@@ -9,7 +9,7 @@ loginControll();
 const modifyBtn = document.querySelector('#modify');
 const removeBtn = document.querySelector('#remove');
 
-const { nickname, title, content } = JSON.parse(localStorage.detailInfo);
+const { id, nickname, title, content } = JSON.parse(localStorage.detailInfo);
 
 if (sessionStorage.getItem('loginInfo')) {
   const { user: userNickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
@@ -36,3 +36,14 @@ modifyBtn.addEventListener('click', () => {
 });
 
 // 삭제
+
+removeBtn.addEventListener('click', () => {
+  if (confirm('정말로 삭제하시겠습니까?') === true) {
+    // 삭제 요청
+    axios.delete(`http://localhost:5000/board/${id}`).then(() => {
+      window.location.href = '/';
+    });
+  } else {
+    return false;
+  }
+});

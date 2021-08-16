@@ -17,21 +17,26 @@ const getPost = async () => {
   const { data } = reqPost;
 
   for (let i = 0; i < data.length; i++) {
-    let { id, title, content, like } = data[i];
+    if (data[i].id) {
+      let { id, title, content, like } = data[i];
+      console.log(id);
+      if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
+      if (content.length >= 80) content = `${content.substring(0, 50)}...`;
 
-    if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
-    if (content.length >= 80) content = `${content.substring(0, 50)}...`;
-
-    postAria.appendChild(makePost(id, title, content, like));
+      postAria.appendChild(makePost(id, title, content, like));
+    }
   }
 
   const btn = document.querySelectorAll('.post');
-
   for (let i = 0; i < btn.length; i++) {
+    const id = btn[i].dataset.value;
+
     btn[i].addEventListener('click', async () => {
-      let result = await axios.get(`http://localhost:5000/board/${i + 1}`, { Credential: true });
+      let result = await axios.get(`http://localhost:5000/board/${id}`, { Credential: true });
 
       const { data } = result;
+
+      console.log(data);
 
       localStorage.setItem('detailInfo', JSON.stringify(data));
     });

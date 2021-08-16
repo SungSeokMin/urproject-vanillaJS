@@ -28,7 +28,7 @@ function appendElement(data) {
 
     if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
     if (content.length >= 80) content = `${content.substring(0, 50)}...`;
-    console.log(content);
+
     postContent.appendChild(makePost(id, title, content, like));
   }
 }
