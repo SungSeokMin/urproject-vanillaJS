@@ -336,6 +336,7 @@ header {
   overflow: hidden;
   resize: none;
   margin-top: 40px;
+  background-color: inherit;
 }
 
 .write-board-container > .write-title > textarea:focus {
