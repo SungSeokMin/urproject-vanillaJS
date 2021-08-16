@@ -43,7 +43,7 @@ function makeHeader() {
           <b>E-mail</b>
           <input type="text" class="email"/>
           <b>Password</b>
-          <input type="text" class="password"/>
+          <input type="password" class="password"/>
           <button class="signin--btn">로그인</button>
         </div>
 
@@ -68,7 +68,7 @@ function makeHeader() {
           <b>E-mail</b>
           <input type="text" />
           <b>Password</b>
-          <input type="text" />
+          <input type="password" />
           <button class="signup--btn">회원가입</button>
         </div>
       </div>
