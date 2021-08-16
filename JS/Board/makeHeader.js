@@ -4,7 +4,6 @@ function makeHeader() {
   const signupModal = document.querySelector('#signup');
 
   const getLoginSession = sessionStorage.getItem('loginInfo');
-  console.log(getLoginSession);
 
   const loginOrLogoutBtn = getLoginSession
     ? `<button class="login" style="display: none">로그인</button><button class="logout">로그아웃</button>`

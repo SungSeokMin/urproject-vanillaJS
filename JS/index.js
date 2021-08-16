@@ -25,7 +25,6 @@ function appendElement(data) {
 
   for (let i = 0; i < data.length; i++) {
     let { id, title, content, nickname, like } = data[i];
-    console.log(nickname);
 
     if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
     if (content.length >= 80) content = `${content.substring(0, 50)}...`;
@@ -96,7 +95,6 @@ myContentBtn.addEventListener('click', async () => {
       if (user === nickname) return post;
     });
 
-    console.log(myPostSort);
     appendElement(myPostSort);
     postClick();
   }
