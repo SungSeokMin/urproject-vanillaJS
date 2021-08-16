@@ -303,13 +303,19 @@ header {
 .content-container > .post-container > .post > .like-aria {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-left: 10px;
+  margin-right: 12px;
   height: 10%;
   font-size: 14px;
   color: rgb(136, 136, 136);
 }
 
-.content-container > .post-container > .post > .like-aria > .fa-heartbeat {
+.content-container > .post-container > .post > .like-aria > .like-aria--left > span {
+  color: rgb(75, 74, 74);
+}
+
+.content-container > .post-container > .post > .like-aria > .like-aria--right > .fa-heartbeat {
   margin-right: 6px;
 }
 

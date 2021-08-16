@@ -24,12 +24,13 @@ function appendElement(data) {
   }
 
   for (let i = 0; i < data.length; i++) {
-    let { id, title, content, like } = data[i];
+    let { id, title, content, nickname, like } = data[i];
+    console.log(nickname);
 
     if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
     if (content.length >= 80) content = `${content.substring(0, 50)}...`;
 
-    postContent.appendChild(makePost(id, title, content, like));
+    postContent.appendChild(makePost(id, title, content, nickname, like));
   }
 }
 

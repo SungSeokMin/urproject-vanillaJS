@@ -18,12 +18,12 @@ const getPost = async () => {
 
   for (let i = 0; i < data.length; i++) {
     if (data[i].id) {
-      let { id, title, content, like } = data[i];
+      let { id, nickname, title, content, like } = data[i];
 
       if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
       if (content.length >= 80) content = `${content.substring(0, 50)}...`;
 
-      postAria.appendChild(makePost(id, title, content, like));
+      postAria.appendChild(makePost(id, title, content, nickname, like));
     }
   }
 
@@ -43,7 +43,7 @@ const getPost = async () => {
 
 getPost();
 
-function makePost(id, title, content, like) {
+function makePost(id, title, content, writer, like) {
   const aTag = document.createElement('a');
 
   aTag.classList.add('post');
@@ -70,11 +70,27 @@ function makePost(id, title, content, like) {
 
   const likeAria = document.createElement('div');
   likeAria.classList.add('like-aria');
+
+  const likeAriaLeft = document.createElement('div');
+  likeAriaLeft.classList.add('like-aria--left');
+
+  const writerAria = document.createElement('span');
+  writerAria.textContent = writer;
+
+  likeAriaLeft.append(writerAria);
+
+  const likeAriaRight = document.createElement('div');
+  likeAriaRight.classList.add('like-aria--right');
+
   const likeIcon = document.createElement('i');
   likeIcon.classList.add('fas', 'fa-heartbeat');
   const spanEl = document.createElement('span');
+  spanEl.classList.add('hi');
   spanEl.textContent = like;
-  likeAria.append(likeIcon, spanEl);
+
+  likeAriaRight.append(likeIcon, spanEl);
+
+  likeAria.append(likeAriaLeft, likeAriaRight);
 
   aTag.append(imgAria, titleAria, descAria, likeAria);
 
