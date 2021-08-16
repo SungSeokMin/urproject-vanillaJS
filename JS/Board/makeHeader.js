@@ -4,6 +4,7 @@ function makeHeader() {
   const signupModal = document.querySelector('#signup');
 
   const getLoginSession = sessionStorage.getItem('loginInfo');
+  console.log(getLoginSession);
 
   const loginOrLogoutBtn = getLoginSession
     ? `<button class="login" style="display: none">로그인</button><button class="logout">로그아웃</button>`
@@ -11,11 +12,11 @@ function makeHeader() {
 
   const myPageBtn = getLoginSession
     ? `<button class="mypage--btn">마이페이지</button>`
-    : `<button class="mypage--btn style="display: none">마이페이지</button>`;
+    : `<button class="mypage--btn" style="display: none">마이페이지</button>`;
 
   const headerContent = `
     <a href="/">
-      <img class="logo" src="/images/main-logo-purple.jpeg" alt="메인로고" />
+      <img class="logo" src="/images/main-logo-purple.png" alt="메인로고" />
     </a>
     <div class="right-items">
       <div class="search-box">
