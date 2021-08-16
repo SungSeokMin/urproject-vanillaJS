@@ -366,12 +366,27 @@ header {
 .detail-container > .title-detail {
   width: 100%;
   padding-bottom: 50px;
+  position: relative;
 }
 
 .detail-container > .title-detail > h1 {
   font-size: 3rem;
   color: rgb(52, 58, 64);
   font-weight: 800;
+}
+
+.detail-container > .title-detail > .updateOrRemove-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.detail-container > .title-detail > .updateOrRemove-container > button {
+  background: none;
+  border: none;
+  color: rgb(133, 141, 150);
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .under_line {
