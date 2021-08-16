@@ -11,8 +11,6 @@ const postAria = document.querySelector('.post-container');
 따라서 그때마다 새로운 요소를 추가해주면 무한 스크롤 구현 완성 !
 */
 
-let dataLength = 0;
-
 const getPost = async () => {
   const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
 
@@ -22,12 +20,10 @@ const getPost = async () => {
     let { id, title, content, like } = data[i];
 
     if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
-    if (content.length >= 80) content = `${content.substring(0, 80)}...`;
+    if (content.length >= 80) content = `${content.substring(0, 50)}...`;
 
     postAria.appendChild(makePost(id, title, content, like));
   }
-
-  dataLength = data.length;
 
   const btn = document.querySelectorAll('.post');
 
