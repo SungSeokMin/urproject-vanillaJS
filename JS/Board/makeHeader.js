@@ -15,7 +15,7 @@ function makeHeader() {
 
   const headerContent = `
     <a href="/">
-      <img class="logo" src="/images/main-logo.jpeg" alt="메인로고" />
+      <img class="logo" src="/images/main-logo-purple.jpeg" alt="메인로고" />
     </a>
     <div class="right-items">
       <div class="search-box">
