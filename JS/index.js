@@ -1,4 +1,4 @@
-// 글쓰기 버튼 활성화 비활성화
+/* 글쓰기 버튼 활성화 비활성화 */
 
 const writeBtn = document.querySelector('.write--btn');
 
@@ -8,7 +8,7 @@ if (sessionStorage.getItem('loginInfo')) {
   writeBtn.style.display = 'none';
 }
 
-// 최신순 | 추천순 | 내가 쓴 글
+/* 최신순 | 추천순 | 내가 쓴 글 */
 
 const postContent = document.querySelector('.post-container');
 
@@ -27,6 +27,21 @@ function appendElement(data) {
   }
 }
 
+function postClick() {
+  const btn = document.querySelectorAll('.post');
+
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener('click', async () => {
+      let result = await axios.get(`http://localhost:5000/board/${i + 1}`, { Credential: true });
+
+      const { data } = result;
+
+      localStorage.setItem('detailInfo', JSON.stringify(data));
+      console.log('실행1');
+    });
+  }
+}
+
 // 최신순
 
 const latestBtn = document.querySelector('.latest');
@@ -36,6 +51,7 @@ latestBtn.addEventListener('click', async () => {
   const { data } = reqPost;
 
   appendElement(data);
+  postClick();
 });
 
 // 추천순
@@ -49,6 +65,7 @@ recommendBtn.addEventListener('click', async () => {
   const recommendSort = data.sort((a, b) => b.like - a.like);
 
   appendElement(recommendSort);
+  postClick();
 });
 // 내가 쓴 글
 
@@ -74,10 +91,11 @@ myContentBtn.addEventListener('click', async () => {
     });
 
     appendElement(myPostSort);
+    postClick();
   }
 });
 
-// 맨 위로 버튼
+/* 맨 위로 버튼 */
 
 const movetoTop = document.querySelector('.moveToTop');
 
