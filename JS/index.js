@@ -37,8 +37,10 @@ function postClick() {
   const btn = document.querySelectorAll('.post');
 
   for (let i = 0; i < btn.length; i++) {
+    const id = btn[i].dataset.value;
+
     btn[i].addEventListener('click', async () => {
-      let result = await axios.get(`http://localhost:5000/board/${i + 1}`, { Credential: true });
+      let result = await axios.get(`http://localhost:5000/board/${id}`, { Credential: true });
 
       const { data } = result;
 

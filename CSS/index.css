@@ -432,9 +432,17 @@ header {
 }
 
 .moveToTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   bottom: 70px;
   right: 50px;
   cursor: pointer;
   color: #6c63ff;
+  text-decoration: none;
+}
+
+.moveToTop > span {
+  margin-top: 5px;
 }
