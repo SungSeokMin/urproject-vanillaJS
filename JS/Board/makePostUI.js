@@ -18,12 +18,12 @@ const getPost = async () => {
 
   for (let i = 0; i < data.length; i++) {
     if (data[i].id) {
-      let { id, nickname, title, content, like } = data[i];
+      let { id, thumbnail, nickname, title, content, like } = data[i];
 
       if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
-      if (content.length >= 80) content = `${content.substring(0, 50)}...`;
+      if (content.length >= 50) content = `${content.substring(0, 50)}...`;
 
-      postAria.appendChild(makePost(id, title, content, nickname, like));
+      postAria.appendChild(makePost(id, thumbnail, title, content, nickname, like));
     }
   }
 
@@ -43,7 +43,7 @@ const getPost = async () => {
 
 getPost();
 
-function makePost(id, title, content, writer, like) {
+function makePost(id, thumbnail, title, content, writer, like) {
   const aTag = document.createElement('a');
 
   aTag.classList.add('post');
@@ -54,7 +54,7 @@ function makePost(id, title, content, writer, like) {
   const img = document.createElement('img');
   imgAria.classList.add('img-aria');
 
-  img.setAttribute('src', './images/welcome.svg');
+  thumbnail ? img.setAttribute('src', thumbnail) : img.setAttribute('src', '/images/welcome.svg');
   img.setAttribute('alt', 'post');
   imgAria.appendChild(img);
 

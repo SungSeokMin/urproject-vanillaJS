@@ -14,7 +14,7 @@ if (sessionStorage.getItem('loginInfo')) {
   writeBtn.style.display = 'none';
 }
 
-/* 최신순 | 추천순 | 내가 쓴 글 */
+/* 최신순 | 추천순 | 내가 쓴 글 | 검색 */
 
 const postContent = document.querySelector('.post-container');
 
@@ -24,12 +24,12 @@ function appendElement(data) {
   }
 
   for (let i = 0; i < data.length; i++) {
-    let { id, title, content, nickname, like } = data[i];
+    let { id, thumbnail, title, content, nickname, like } = data[i];
 
     if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
-    if (content.length >= 80) content = `${content.substring(0, 50)}...`;
+    if (content.length >= 50) content = `${content.substring(0, 50)}...`;
 
-    postContent.appendChild(makePost(id, title, content, nickname, like));
+    postContent.appendChild(makePost(id, thumbnail, title, content, nickname, like));
   }
 }
 
@@ -101,6 +101,14 @@ myContentBtn.addEventListener('click', async () => {
     postClick();
   }
 });
+
+// 검색
+
+const searchBar = document.querySelector('.search-txt');
+const searchBtn = document.querySelector('.search--btn');
+
+// Navigation Bar의 search 기능
+// 검색어를 입력 후 search icon을 누르면 해당 input의 value를 가져온다.
 
 /* 맨 위로 버튼 */
 

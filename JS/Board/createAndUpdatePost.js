@@ -22,13 +22,27 @@ $('#summernote').summernote({
 });
 
 // img input을 숨기고 버튼으로 대체하기
+// 썸네일 버튼 클릭 후 이미지 파일 가져오면 thumbnail 변수에 저장하기
 
 const imgInput = document.querySelector('#real-input');
 const imgUpload = document.querySelector('.img-upload');
 
+var reader = new FileReader();
+let thumbnail = '';
+
+function uploadImgPreview() {
+  imgInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      thumbnail = reader.result;
+    };
+  });
+}
 imgUpload.addEventListener('click', () => {
-  alert('업데이트 예정 !!');
-  // imgInput.click();
+  imgInput.click();
+  uploadImgPreview();
 });
 
 // title, desc, imgInput 내용 가져오기
@@ -63,7 +77,6 @@ if (localStorage.getItem('detailInfo')) {
 } else {
   checkBtn.addEventListener('click', async () => {
     // 새로운 글 작성 시 요청 보내기
-
     // TODO
     // 현재는 임시적으로 id값을 axios를 통해 게시글의 마지막 번호를 조회하지만
     // 추후 DataBase 구축 시에는 이럴 필요 없다 !!
@@ -76,6 +89,7 @@ if (localStorage.getItem('detailInfo')) {
     const post = {
       id: currentId + 1,
       nickname: user,
+      thumbnail,
       title: titleInput.value,
       content: descInput.value,
       like: 0,
