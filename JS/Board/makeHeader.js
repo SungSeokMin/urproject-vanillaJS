@@ -15,11 +15,11 @@ function makeHeader() {
 
   const headerContent = `
     <a href="/">
-      <img class="logo" src="/images/main-logo-purple.png" alt="메인로고" />
+      <img class="logo" src="/images/main-logo-purple.jpeg" alt="메인로고" />
     </a>
     <div class="right-items">
       <div class="search-box">
-        <input class="search-txt" type="text" placeholder="검색어를 입력하세요." />
+        <input type="text" class="search-txt" placeholder="검색어를 입력하세요." />
         <button class="search--btn" href="#">
           <i class="fas fa-search"></i>
         </button>
