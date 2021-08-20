@@ -396,6 +396,15 @@ header {
   font-weight: 800;
 }
 
+.detail-container > .title-detail > .like--btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #6c63ff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
 .detail-container > .title-detail > .updateOrRemove-container {
   position: absolute;
   right: 0;

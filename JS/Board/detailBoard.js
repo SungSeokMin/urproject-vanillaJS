@@ -9,6 +9,9 @@ loginControll();
 const modifyBtn = document.querySelector('#modify');
 const removeBtn = document.querySelector('#remove');
 
+const likeBtn = document.querySelector('#like');
+const unLikeBtn = document.querySelector('#unLike');
+
 const { id, nickname, title, content } = JSON.parse(localStorage.detailInfo);
 
 if (sessionStorage.getItem('loginInfo')) {
@@ -18,6 +21,8 @@ if (sessionStorage.getItem('loginInfo')) {
     modifyBtn.style.display = 'inline';
     removeBtn.style.display = 'inline';
   }
+
+  likeBtn.style.display = 'inline';
 }
 
 const titleEL = document.querySelector('.title');
@@ -46,4 +51,16 @@ removeBtn.addEventListener('click', () => {
   } else {
     return false;
   }
+});
+
+/* 좋아요 클릭 */
+
+likeBtn.addEventListener('click', () => {
+  likeBtn.style.display = 'none';
+  unLikeBtn.style.display = 'inline';
+});
+
+unLikeBtn.addEventListener('click', () => {
+  likeBtn.style.display = 'inline';
+  unLikeBtn.style.display = 'none';
 });
