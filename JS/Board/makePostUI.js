@@ -36,7 +36,7 @@ let end = 12;
 
 const listEnd = document.querySelector('.list-end');
 
-const getPost = async function () {
+(async function () {
   const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
 
   const { data } = reqPost;
@@ -60,9 +60,7 @@ const getPost = async function () {
   );
 
   listMoreObserver.observe(listEnd);
-};
-
-getPost();
+})();
 
 function makePost(id, thumbnail, title, content, writer, like) {
   const aTag = document.createElement('a');
