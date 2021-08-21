@@ -53,7 +53,6 @@ const listEnd = document.querySelector('.list-end');
 
         listMoreObserver.unobserve(entry.target);
         if (end <= data.length && top > 230 && listEnd.dataset.value === 'main') {
-          console.log('들어옴');
           await renderList(data, start, end);
           listMoreObserver.observe(entry.target);
         }
