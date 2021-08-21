@@ -468,27 +468,15 @@ header {
 @media screen and (max-width: 1525px) {
   .inner-container {
     width: 100%;
-    /* background-color: black; */
+    box-sizing: border-box;
+    padding: 0 25px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .inner-container {
-    box-sizing: border-box;
-    padding: 0 25px;
+  .write-desc {
+    width: 100%;
   }
-
-  .right-items > .login,
-  .right-items > .mypage--btn {
-    padding: 10px 14px;
-    font-size: 22px;
-  }
-
-  .right-items > .logout {
-    padding: 10px 14px;
-    font-size: 22px;
-  }
-
   .content-container > .post-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -511,14 +499,17 @@ header {
 
   .content-container > .post-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-auto-columns: minmax(316px, 316px);
     justify-items: center;
   }
 
   .search-box {
-    margin-right: 30px;
-    position: relative;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 
   .search-box:hover {
@@ -548,34 +539,16 @@ header {
     height: 100%;
   }
 
-  .content-container > .post-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-auto-columns: minmax(316px, 316px);
-    justify-items: center;
-  }
-
   .logo {
     width: 100px;
   }
 
   .right-items > .login,
-  .right-items > .mypage--btn {
+  .right-items > .mypage--btn,
+  .right-items > .logout,
+  .content-container > .write--btn {
     padding: 8px 12px;
     font-size: 14px;
-  }
-
-  .right-items > .logout {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-
-  .search-box {
-    position: absolute;
-    top: 90px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
   }
 
   .modal-container > .login-box {
@@ -593,5 +566,28 @@ header {
 
   .detail-container {
     width: 350px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .right-items > .login,
+  .right-items > .mypage--btn {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .right-items > .logout {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .content-container > .post-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-columns: minmax(316px, 316px);
+    justify-items: start;
+  }
+  .content-container > .post-container > .post {
+    width: 100%;
   }
 }
