@@ -107,9 +107,6 @@ myContentBtn.addEventListener('click', async () => {
 const searchBar = document.querySelector('.search-txt');
 const searchBtn = document.querySelector('.search--btn');
 
-// Navigation Bar의 search 기능
-// 검색어를 입력 후 search icon을 누르면 해당 input의 value를 가져온다.
-
 /* 맨 위로 버튼 */
 
 const movetoTop = document.querySelector('.moveToTop');

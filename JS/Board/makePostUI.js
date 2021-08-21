@@ -1,22 +1,8 @@
 const contentAria = document.querySelector('.content-container');
 const postAria = document.querySelector('.post-container');
-/*
-- window.innerHeight = 브라우저에서 실제로 표시되고 있는 영역의 높이
-- window.scrollY = 스크롤이 세로로 얼마나 이동했는지 px로 나타냄, 0부터 시작해서 내릴수록 증가
-- document.body.offsetHeight = 요소의 실제 높이
 
-핵심 포인트
-
-표시되는 영역 + 스크롤 값이 콘텐츠 전체 높이보다 크면 더이상 내려갈 곳이 없다는 뜻
-따라서 그때마다 새로운 요소를 추가해주면 무한 스크롤 구현 완성 !
-*/
-
-const getPost = async () => {
-  const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
-
-  const { data } = reqPost;
-
-  for (let i = 0; i < data.length; i++) {
+const renderList = (data, start, end) => {
+  for (let i = start; i < end; i++) {
     if (data[i].id) {
       let { id, thumbnail, nickname, title, content, like } = data[i];
 
@@ -24,9 +10,11 @@ const getPost = async () => {
       if (content.length >= 50) content = `${content.substring(0, 50)}...`;
 
       postAria.appendChild(makePost(id, thumbnail, title, content, nickname, like));
-    }
+    } else break;
   }
+};
 
+const goDetailPage = () => {
   const btn = document.querySelectorAll('.post');
   for (let i = 0; i < btn.length; i++) {
     const id = btn[i].dataset.value;
@@ -39,6 +27,39 @@ const getPost = async () => {
       localStorage.setItem('detailInfo', JSON.stringify(data));
     });
   }
+};
+
+/* 무한 스크롤 */
+
+let start = 0;
+let end = 12;
+
+const listEnd = document.querySelector('.list-end');
+
+const getPost = async function () {
+  const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
+
+  const { data } = reqPost;
+  renderList(data, start, end);
+
+  goDetailPage();
+
+  const listMoreObserver = new IntersectionObserver(
+    async ([entry]) => {
+      if (entry.isIntersecting) {
+        listMoreObserver.unobserve(entry.target);
+        if (end <= data.length) {
+          await renderList(data, start, end);
+          listMoreObserver.observe(entry.target);
+        }
+        start = end;
+        end += 12;
+      }
+    },
+    { threshold: 0.4 }
+  );
+
+  listMoreObserver.observe(listEnd);
 };
 
 getPost();
