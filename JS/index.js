@@ -2,6 +2,7 @@
 // 상세페이지를 빠져나와서는 굳이 localStorage에 상세정보를 가지고 있을 필요가 없다.
 window.addEventListener('load', () => {
   localStorage.removeItem('detailInfo');
+  listEnd.setAttribute('data-value', 'main');
 });
 
 /* 글쓰기 버튼 활성화 비활성화 */
@@ -19,17 +20,13 @@ if (sessionStorage.getItem('loginInfo')) {
 const postContent = document.querySelector('.post-container');
 
 function appendElement(data) {
-  while (postContent.hasChildNodes()) {
-    postContent.removeChild(postContent.firstChild);
-  }
-
   for (let i = 0; i < data.length; i++) {
     let { id, thumbnail, title, content, nickname, like } = data[i];
-
     if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
     if (content.length >= 50) content = `${content.substring(0, 50)}...`;
 
     postContent.appendChild(makePost(id, thumbnail, title, content, nickname, like));
+    postClick();
   }
 }
 
@@ -54,11 +51,15 @@ function postClick() {
 const latestBtn = document.querySelector('.latest');
 
 latestBtn.addEventListener('click', async () => {
+  listEnd.setAttribute('data-value', 'latest');
   const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
   const { data } = reqPost;
 
+  while (postContent.hasChildNodes()) {
+    postContent.removeChild(postContent.firstChild);
+  }
+
   appendElement(data);
-  postClick();
 });
 
 // 추천순
@@ -66,39 +67,41 @@ latestBtn.addEventListener('click', async () => {
 const recommendBtn = document.querySelector('.recommend');
 
 recommendBtn.addEventListener('click', async () => {
+  listEnd.setAttribute('data-value', 'recommend');
   const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
   const { data } = reqPost;
+
+  while (postContent.hasChildNodes()) {
+    postContent.removeChild(postContent.firstChild);
+  }
 
   const recommendSort = data.sort((a, b) => b.like - a.like);
 
   appendElement(recommendSort);
-  postClick();
 });
 // 내가 쓴 글
 
 const myContentBtn = document.querySelector('.myContent');
 
 myContentBtn.addEventListener('click', async () => {
+  listEnd.setAttribute('data-value', 'mycontent');
   const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
   const { data } = reqPost;
-
-  const myPost = JSON.parse(sessionStorage.getItem('loginInfo'));
 
   while (postContent.hasChildNodes()) {
     postContent.removeChild(postContent.firstChild);
   }
+
+  const myPost = JSON.parse(sessionStorage.getItem('loginInfo'));
 
   if (myPost) {
     const { user } = myPost;
 
     const myPostSort = data.filter((post) => {
       const { nickname } = post;
-
       if (user === nickname) return post;
     });
-
     appendElement(myPostSort);
-    postClick();
   }
 });
 

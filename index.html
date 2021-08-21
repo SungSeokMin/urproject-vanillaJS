@@ -15,7 +15,7 @@
   <body>
     <div class="inner-container">
       <!-- Header -->
-      <div class="nav-container"></div>
+      <header class="nav-container"></header>
 
       <!-- SignIn Modal -->
       <div class="modal-container" id="signin" style="display: none"></div>
@@ -24,7 +24,7 @@
       <div class="modal-container" id="signup" style="display: none"></div>
 
       <!-- Content -->
-      <div class="content-container">
+      <section class="content-container">
         <div class="filter-content">
           <button class="latest">최신순</button>
           <div class="column-link"></div>
@@ -36,8 +36,8 @@
         <div class="post-container">
           <!-- 게시글을 보여줄 목록 (DOM 조작 / makePost.js) -->
         </div>
-        <div class="list-end"></div>
-      </div>
+        <div class="list-end" data-value="main"></div>
+      </section>
     </div>
     <!-- go to top -->
     <a href="#" class="moveToTop">
