@@ -66,9 +66,11 @@ function makeHeader() {
 
         <div class="info-container">
           <b>E-mail</b>
-          <input type="text" />
+          <input type="text" class="signup-email" />
+          <b>Nickname</b>
+          <input type="text" class="signup-nickname"/>
           <b>Password</b>
-          <input type="password" />
+          <input type="password" class="signup-password"/>
           <button class="signup--btn">회원가입</button>
         </div>
       </div>
