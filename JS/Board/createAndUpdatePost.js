@@ -17,8 +17,17 @@ $('#summernote').summernote({
     ['color', ['forecolor', 'color']],
     ['table', ['table']],
     ['para', ['ul', 'ol', 'paragraph']],
-    ['insert', ['picture', 'link']],
+    ['insert', ['link']],
   ],
+});
+
+// 사진 업로드 방지,, base64 인코딩 때문에 DB에 들어가지 않는다.
+// 추후에 방법을 찾아서 해결해야겠다.
+const editable = document.querySelector('.note-dropzone');
+
+editable.addEventListener('drop', () => {
+  alert('사진 첨부 기능의 오류가 있습니다. 사진 삭제 부탁드립니다...');
+  return;
 });
 
 // img input을 숨기고 버튼으로 대체하기
