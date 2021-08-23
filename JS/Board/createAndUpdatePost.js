@@ -33,11 +33,47 @@ let thumbnail = '';
 function uploadImgPreview() {
   imgInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
-    reader.readAsDataURL(file);
 
-    reader.onload = () => {
-      thumbnail = reader.result;
+    // thumbnail = reader.result;
+    reader.onload = (e) => {
+      const img = document.createElement('img');
+
+      img.onload = function (event) {
+        let canvas = document.createElement('canvas');
+
+        let ctx = canvas.getContext('2d');
+
+        const MAX_WIDTH = 300;
+        const MAX_HEIGHT = 300;
+
+        let width = img.width;
+        let height = img.height;
+
+        // Change the resizing logic
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height = height * (MAX_WIDTH / width);
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width = width * (MAX_HEIGHT / height);
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.witdh = width;
+        canvas.height = height;
+
+        ctx.drawImage(img, 0, 0, width, height);
+
+        let dataurl = canvas.toDataURL('image/png');
+
+        thumbnail = dataurl;
+      };
+      img.src = e.target.result;
     };
+    reader.readAsDataURL(file);
   });
 }
 imgUpload.addEventListener('click', () => {
@@ -57,12 +93,12 @@ const summerNoteEditAria = document.querySelector('.note-editable');
 // 메인페이지로 이동하면 storage이 정보는 날라가게 된다.
 // 밑의 if 분기는 상세페이지로 이동 후 내가 쓴 글이면 수정버튼이 보이는데
 // 이때 수정버튼을 누르고 들어왔을때의 상황이다.
-if (localStorage.getItem('detailInfo')) {
+if (localStorage.getItem('board_id')) {
   // 작성된 글에 대한 수정
-  const { id, title, content } = JSON.parse(localStorage.getItem('detailInfo'));
+  const { id } = JSON.parse(localStorage.getItem('board_id'));
 
-  titleInput.value = title;
-  summerNoteEditAria.innerHTML = content;
+  // titleInput.value = title;
+  // summerNoteEditAria.innerHTML = content;
 
   checkBtn.addEventListener('click', () => {
     axios
@@ -80,22 +116,17 @@ if (localStorage.getItem('detailInfo')) {
     // TODO
     // 현재는 임시적으로 id값을 axios를 통해 게시글의 마지막 번호를 조회하지만
     // 추후 DataBase 구축 시에는 이럴 필요 없다 !!
-    const getPost = await axios.get('http://localhost:5000/board');
-    const { data } = getPost;
 
-    const currentId = data[data.length - 1].id;
-    const { user } = JSON.parse(sessionStorage.getItem('loginInfo'));
+    const { nickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
 
     const post = {
-      id: currentId + 1,
-      nickname: user,
+      nickname,
       thumbnail,
       title: titleInput.value,
       content: descInput.value,
-      like: 0,
     };
 
-    axios.post('http://localhost:5000/board', post).then(() => {
+    axios.post('http://localhost:5000/board', post, {}).then((res) => {
       window.location.href = '/index.html';
     });
   });
