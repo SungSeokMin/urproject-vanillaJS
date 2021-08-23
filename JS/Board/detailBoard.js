@@ -12,24 +12,28 @@ const removeBtn = document.querySelector('#remove');
 const likeBtn = document.querySelector('#like');
 const unLikeBtn = document.querySelector('#unLike');
 
-const { id, nickname, title, content } = JSON.parse(localStorage.detailInfo);
+const boardId = JSON.parse(localStorage.board_id);
 
-if (sessionStorage.getItem('loginInfo')) {
-  const { user: userNickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
+axios.get(`http://localhost:5000/board/${boardId}`, { Credential: true }).then((res) => {
+  const { nickname, title, content } = res.data[0];
 
-  if (nickname === userNickname) {
-    modifyBtn.style.display = 'inline';
-    removeBtn.style.display = 'inline';
+  if (sessionStorage.getItem('loginInfo')) {
+    const { user: userNickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
+
+    if (nickname === userNickname) {
+      modifyBtn.style.display = 'inline';
+      removeBtn.style.display = 'inline';
+    }
+
+    likeBtn.style.display = 'inline';
   }
 
-  likeBtn.style.display = 'inline';
-}
+  const titleEL = document.querySelector('.title');
+  const contentEL = document.querySelector('.content');
 
-const titleEL = document.querySelector('.title');
-const contentEL = document.querySelector('.content');
-
-titleEL.textContent = title;
-contentEL.innerHTML = content;
+  titleEL.textContent = title;
+  contentEL.innerHTML = content;
+});
 
 /* 수정 & 삭제 */
 
