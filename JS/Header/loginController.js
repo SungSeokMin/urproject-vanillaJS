@@ -144,7 +144,7 @@ function loginControll() {
     const { message } = signupReq.data;
 
     if (message === 'signup Ok') {
-      window.history.back();
+      window.location.href = '/index.html';
     } else if (message === 'email already exist') {
       alert('중복된 이메일 입니다.');
       signupEmail.focus();
