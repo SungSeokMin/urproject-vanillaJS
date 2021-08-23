@@ -97,6 +97,9 @@ function loginControll() {
   });
 
   logoutBtn.addEventListener('click', async () => {
+    const myPageBtn = document.querySelector('.mypage--btn');
+    myPageBtn.style.display = 'none';
+
     loginBtn.style.display = 'block';
     logoutBtn.style.display = 'none';
 
