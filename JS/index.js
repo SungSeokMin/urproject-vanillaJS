@@ -1,7 +1,7 @@
 // index.html 즉 메인페이지로 오면 localStorage의 detailInfo 없애기
 // 상세페이지를 빠져나와서는 굳이 localStorage에 상세정보를 가지고 있을 필요가 없다.
 window.addEventListener('load', () => {
-  localStorage.removeItem('detailInfo');
+  localStorage.removeItem('board_id');
   listEnd.setAttribute('data-value', 'main');
 });
 

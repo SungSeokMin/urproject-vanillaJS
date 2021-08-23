@@ -3,12 +3,12 @@ const postAria = document.querySelector('.post-container');
 
 const renderList = (data, start, end) => {
   for (let i = start; i < end; i++) {
-    if (data[i].id) {
-      let { id, thumbnail, nickname, title, content, like } = data[i];
+    const bool = data[i] ? data[i].id : false;
 
+    if (bool) {
+      let { id, thumbnail, nickname, title, content, like } = data[i];
       if (title.length >= 30) title = `${title.substring(0, 30)} ...`;
       if (content.length >= 50) content = `${content.substring(0, 50)}...`;
-
       postAria.appendChild(makePost(id, thumbnail, title, content, nickname, like));
     } else break;
   }
@@ -16,15 +16,12 @@ const renderList = (data, start, end) => {
 
 const goDetailPage = () => {
   const btn = document.querySelectorAll('.post');
+
   for (let i = 0; i < btn.length; i++) {
     const id = btn[i].dataset.value;
 
-    btn[i].addEventListener('click', async () => {
-      let result = await axios.get(`http://localhost:5000/board/${id}`, { Credential: true });
-
-      const { data } = result;
-
-      localStorage.setItem('detailInfo', JSON.stringify(data));
+    btn[i].addEventListener('click', () => {
+      localStorage.setItem('board_id', JSON.stringify(id));
     });
   }
 };
@@ -41,7 +38,6 @@ const listEnd = document.querySelector('.list-end');
 
   const { data } = reqPost;
   renderList(data, start, end);
-
   goDetailPage();
 
   const listMoreObserver = new IntersectionObserver(
@@ -77,7 +73,9 @@ function makePost(id, thumbnail, title, content, writer, like) {
   const img = document.createElement('img');
   imgAria.classList.add('img-aria');
 
-  thumbnail ? img.setAttribute('src', thumbnail) : img.setAttribute('src', '/images/welcome.svg');
+  thumbnail
+    ? img.setAttribute('src', thumbnail)
+    : img.setAttribute('src', '/images/white-thumbnail.png');
   img.setAttribute('alt', 'post');
   imgAria.appendChild(img);
 
