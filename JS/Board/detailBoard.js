@@ -12,59 +12,70 @@ const removeBtn = document.querySelector('#remove');
 const likeBtn = document.querySelector('#like');
 const unLikeBtn = document.querySelector('#unLike');
 
-const boardId = JSON.parse(localStorage.board_id);
+const boardId = localStorage.board_id ? JSON.parse(localStorage.board_id) : null;
 
-axios.get(`http://localhost:5000/board/${boardId}`, { Credential: true }).then((res) => {
-  const { nickname, title, content } = res.data[0];
+boardId
+  ? axios.get(`http://localhost:5000/board/${boardId}`, { Credential: true }).then((res) => {
+      console.log('실행');
+      const { nickname, title, content } = res.data[0];
 
-  if (sessionStorage.getItem('loginInfo')) {
-    const { user: userNickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
+      if (sessionStorage.getItem('loginInfo')) {
+        const { user: userNickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
 
-    if (nickname === userNickname) {
-      modifyBtn.style.display = 'inline';
-      removeBtn.style.display = 'inline';
-    }
+        if (nickname === userNickname) {
+          modifyBtn.style.display = 'inline';
+          removeBtn.style.display = 'inline';
+        }
 
-    likeBtn.style.display = 'inline';
-  }
+        likeBtn.style.display = 'inline';
+      }
 
-  const titleEL = document.querySelector('.title');
-  const contentEL = document.querySelector('.content');
+      const titleEL = document.querySelector('.title');
+      const contentEL = document.querySelector('.content');
 
-  titleEL.textContent = title;
-  contentEL.innerHTML = content;
-});
+      titleEL ? (titleEL.textContent = title) : null;
+      contentEL ? (contentEL.innerHTML = content) : null;
+    })
+  : null;
 
 /* 수정 & 삭제 */
 
 // 수정
 
-modifyBtn.addEventListener('click', () => {
-  window.location.href = '../../HTML/createboard.html';
-  // createAndUpdatePost.js에서 새 글을 작성할 때와 수정할때 분기를 나눠줬다.
-});
+modifyBtn
+  ? modifyBtn.addEventListener('click', () => {
+      window.location.href = './createboard.html';
+      // createAndUpdatePost.js에서 새 글을 작성할 때와 수정할때 분기를 나눠줬다.
+    })
+  : null;
 
 // 삭제
 
-removeBtn.addEventListener('click', () => {
-  if (confirm('정말로 삭제하시겠습니까?') === true) {
-    // 삭제 요청
-    axios.delete(`http://localhost:5000/board/${id}`).then(() => {
-      window.location.href = '/';
-    });
-  } else {
-    return false;
-  }
-});
+removeBtn
+  ? removeBtn.addEventListener('click', () => {
+      if (confirm('정말로 삭제하시겠습니까?') === true) {
+        // 삭제 요청
+        axios.delete(`http://localhost:5000/board/${id}`).then(() => {
+          window.location.href = '/';
+        });
+      } else {
+        return false;
+      }
+    })
+  : null;
 
 /* 좋아요 클릭 */
 
-likeBtn.addEventListener('click', () => {
-  likeBtn.style.display = 'none';
-  unLikeBtn.style.display = 'inline';
-});
+likeBtn
+  ? likeBtn.addEventListener('click', () => {
+      likeBtn.style.display = 'none';
+      unLikeBtn.style.display = 'inline';
+    })
+  : null;
 
-unLikeBtn.addEventListener('click', () => {
-  likeBtn.style.display = 'inline';
-  unLikeBtn.style.display = 'none';
-});
+unLikeBtn
+  ? unLikeBtn.addEventListener('click', () => {
+      likeBtn.style.display = 'inline';
+      unLikeBtn.style.display = 'none';
+    })
+  : null;

@@ -1,8 +1,16 @@
-// index.html 즉 메인페이지로 오면 localStorage의 detailInfo 없애기
-// 상세페이지를 빠져나와서는 굳이 localStorage에 상세정보를 가지고 있을 필요가 없다.
-window.addEventListener('load', () => {
+import { makePost } from '../JS/Board/makePost';
+import '../CSS/index.css';
+import '../CSS/reset.css';
+
+const listEnd = document.querySelector('.list-end');
+
+if (window.location.pathname === '/') {
   localStorage.removeItem('board_id');
-  listEnd.setAttribute('data-value', 'main');
+  localStorage.removeItem('detailInfo');
+}
+
+window.addEventListener('load', () => {
+  listEnd ? listEnd.setAttribute('data-value', 'main') : null;
 });
 
 /* 글쓰기 버튼 활성화 비활성화 */
@@ -10,9 +18,9 @@ window.addEventListener('load', () => {
 const writeBtn = document.querySelector('.write--btn');
 
 if (sessionStorage.getItem('loginInfo')) {
-  writeBtn.style.display = 'block';
+  writeBtn ? (writeBtn.style.display = 'block') : null;
 } else {
-  writeBtn.style.display = 'none';
+  writeBtn ? (writeBtn.style.display = 'none') : null;
 }
 
 /* 최신순 | 추천순 | 내가 쓴 글 | 검색 */
@@ -26,7 +34,6 @@ function appendElement(data) {
     if (content.length >= 50) content = `${content.substring(0, 50)}...`;
 
     postContent.appendChild(makePost(id, thumbnail, title, content, nickname, like));
-    postClick();
   }
 }
 
@@ -37,11 +44,7 @@ function postClick() {
     const id = btn[i].dataset.value;
 
     btn[i].addEventListener('click', async () => {
-      let result = await axios.get(`http://localhost:5000/board/${id}`, { Credential: true });
-
-      const { data } = result;
-
-      localStorage.setItem('detailInfo', JSON.stringify(data));
+      localStorage.setItem('board_id', JSON.stringify(id));
     });
   }
 }
@@ -59,7 +62,8 @@ latestBtn.addEventListener('click', async () => {
     postContent.removeChild(postContent.firstChild);
   }
 
-  appendElement(data);
+  appendElement(data.reverse());
+  postClick();
 });
 
 // 추천순
@@ -78,6 +82,7 @@ recommendBtn.addEventListener('click', async () => {
   const recommendSort = data.sort((a, b) => b.like - a.like);
 
   appendElement(recommendSort);
+  postClick();
 });
 // 내가 쓴 글
 
@@ -102,6 +107,7 @@ myContentBtn.addEventListener('click', async () => {
       if (user === nickname) return post;
     });
     appendElement(myPostSort);
+    postClick();
   }
 });
 

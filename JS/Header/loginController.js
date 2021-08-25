@@ -73,7 +73,6 @@ function loginControll() {
       },
       { withCredentials: true }
     );
-
     const { message, nickname } = loginReq.data;
 
     if (loginReq.status === 200 || message === 'login Ok') {
