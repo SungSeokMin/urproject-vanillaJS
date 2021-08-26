@@ -82,6 +82,7 @@ imgInput.addEventListener('change', (e) => {
   };
   reader.readAsDataURL(file);
 });
+
 imgUpload.addEventListener('click', () => {
   imgInput.click();
 });
@@ -92,28 +93,38 @@ const titleInput = document.querySelector('.title-input');
 const descInput = document.querySelector('#summernote');
 const checkBtn = document.querySelector('.check--btn');
 
-// 수정할 때 기존에 있던 내용을 가져오기 위해 select 했다.
-const summerNoteEditAria = document.querySelector('.note-editable');
-
 // 메인페이지로 이동하면 storage이 정보는 날라가게 된다.
 // 밑의 if 분기는 상세페이지로 이동 후 내가 쓴 글이면 수정버튼이 보이는데
 // 이때 수정버튼을 누르고 들어왔을때의 상황이다.
 
 if (localStorage.getItem('board_id')) {
-  const { id } = JSON.parse(localStorage.getItem('board_id'));
-  // 작성된 글에 대한 수정
-  checkBtn
-    ? checkBtn.addEventListener('click', () => {
-        axios
-          .patch(`http://localhost:5000/board/${id}`, {
-            title: titleInput.value,
-            content: summerNoteEditAria.value,
-          })
-          .then(() => {
-            window.location.href = '/index.html';
-          });
-      })
-    : null;
+  const id = JSON.parse(localStorage.getItem('board_id'));
+  let resThumbnail = '';
+  let summernoteValue = '';
+  axios.get(`http://localhost:5000/board/${id}`).then((res) => {
+    const summerNoteEditAria = document.querySelector('.note-editable');
+    const { thumbnail: thumb, title, content } = res.data[0];
+
+    // 수정할 때 기존에 있던 내용을 가져오기 위해 select 했다.
+
+    titleInput.value = title;
+    summerNoteEditAria.innerHTML = content;
+
+    resThumbnail = thumb;
+    summernoteValue = summerNoteEditAria;
+  });
+
+  checkBtn.addEventListener('click', async () => {
+    const checkThubnail = thumbnail ? thumbnail : resThumbnail;
+
+    await axios.patch(`http://localhost:5000/board/${id}`, {
+      thumbnail: checkThubnail,
+      title: titleInput.value,
+      content: summernoteValue.innerHTML,
+    });
+
+    window.location.href = '/index.html';
+  });
 } else {
   checkBtn
     ? checkBtn.addEventListener('click', async () => {
