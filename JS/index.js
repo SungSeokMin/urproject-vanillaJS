@@ -116,6 +116,22 @@ myContentBtn.addEventListener('click', async () => {
 const searchBar = document.querySelector('.search-txt');
 const searchBtn = document.querySelector('.search--btn');
 
+searchBtn.addEventListener('click', async () => {
+  const searchValue = searchBar.value;
+
+  while (postContent.hasChildNodes()) {
+    postContent.removeChild(postContent.firstChild);
+  }
+
+  const searchReq = await axios.post('http://localhost:5000/board/search', {
+    title: searchValue,
+  });
+  const { data } = searchReq;
+
+  appendElement(data);
+  postClick();
+});
+
 /* 맨 위로 버튼 */
 
 const movetoTop = document.querySelector('.moveToTop');
