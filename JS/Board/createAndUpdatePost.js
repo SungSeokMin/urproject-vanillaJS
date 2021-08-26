@@ -39,14 +39,13 @@ const imgUpload = document.querySelector('.img-upload');
 var reader = new FileReader();
 let thumbnail = '';
 
-imgInput.addEventListener('change', () => {
+imgInput.addEventListener('change', (e) => {
   const file = e.target.files[0];
-
-  // thumbnail = reader.result;
+  console.log(e);
   reader.onload = (e) => {
     const img = document.createElement('img');
 
-    img.onload = function (event) {
+    img.onload = function () {
       let canvas = document.createElement('canvas');
 
       let ctx = canvas.getContext('2d');
