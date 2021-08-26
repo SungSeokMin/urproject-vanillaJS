@@ -92,19 +92,18 @@ myContentBtn.addEventListener('click', async () => {
   listEnd.setAttribute('data-value', 'mycontent');
   const reqPost = await axios.get('http://localhost:5000/board', { Credential: true });
   const { data } = reqPost;
-
+  console.log(data);
   while (postContent.hasChildNodes()) {
     postContent.removeChild(postContent.firstChild);
   }
 
   const myPost = JSON.parse(sessionStorage.getItem('loginInfo'));
-
   if (myPost) {
-    const { user } = myPost;
+    const { nickname } = myPost;
 
     const myPostSort = data.filter((post) => {
-      const { nickname } = post;
-      if (user === nickname) return post;
+      const { nickname: postNickname } = post;
+      if (nickname === postNickname) return post;
     });
     appendElement(myPostSort);
     postClick();
