@@ -39,60 +39,53 @@ const imgUpload = document.querySelector('.img-upload');
 var reader = new FileReader();
 let thumbnail = '';
 
-function uploadImgPreview() {
-  imgInput
-    ? imgInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
+imgInput.addEventListener('change', () => {
+  const file = e.target.files[0];
 
-        // thumbnail = reader.result;
-        reader.onload = (e) => {
-          const img = document.createElement('img');
+  // thumbnail = reader.result;
+  reader.onload = (e) => {
+    const img = document.createElement('img');
 
-          img.onload = function (event) {
-            let canvas = document.createElement('canvas');
+    img.onload = function (event) {
+      let canvas = document.createElement('canvas');
 
-            let ctx = canvas.getContext('2d');
+      let ctx = canvas.getContext('2d');
 
-            const MAX_WIDTH = 300;
-            const MAX_HEIGHT = 300;
+      const MAX_WIDTH = 300;
+      const MAX_HEIGHT = 300;
 
-            let width = img.width;
-            let height = img.height;
+      let width = img.width;
+      let height = img.height;
 
-            // Change the resizing logic
-            if (width > height) {
-              if (width > MAX_WIDTH) {
-                height = height * (MAX_WIDTH / width);
-                width = MAX_WIDTH;
-              }
-            } else {
-              if (height > MAX_HEIGHT) {
-                width = width * (MAX_HEIGHT / height);
-                height = MAX_HEIGHT;
-              }
-            }
+      // Change the resizing logic
+      if (width > height) {
+        if (width > MAX_WIDTH) {
+          height = height * (MAX_WIDTH / width);
+          width = MAX_WIDTH;
+        }
+      } else {
+        if (height > MAX_HEIGHT) {
+          width = width * (MAX_HEIGHT / height);
+          height = MAX_HEIGHT;
+        }
+      }
 
-            canvas.witdh = width;
-            canvas.height = height;
+      canvas.witdh = width;
+      canvas.height = height;
 
-            ctx.drawImage(img, 0, 0, width, height);
+      ctx.drawImage(img, 0, 0, width, height);
 
-            let dataurl = canvas.toDataURL('image/png');
+      let dataurl = canvas.toDataURL('image/png');
 
-            thumbnail = dataurl;
-          };
-          img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      })
-    : null;
-}
-imgUpload
-  ? imgUpload.addEventListener('click', () => {
-      imgInput.click();
-      uploadImgPreview();
-    })
-  : null;
+      thumbnail = dataurl;
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+imgUpload.addEventListener('click', () => {
+  imgInput.click();
+});
 
 // title, desc, imgInput 내용 가져오기
 
