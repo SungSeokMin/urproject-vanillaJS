@@ -19,7 +19,7 @@ boardId
       const { nickname, title, content } = res.data[0];
 
       if (sessionStorage.getItem('loginInfo')) {
-        const { user: userNickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
+        const { nickname: userNickname } = JSON.parse(sessionStorage.getItem('loginInfo'));
 
         if (nickname === userNickname) {
           modifyBtn.style.display = 'inline';
@@ -43,8 +43,8 @@ boardId
 
 modifyBtn
   ? modifyBtn.addEventListener('click', () => {
-      window.location.href = './createboard.html';
       // createAndUpdatePost.js에서 새 글을 작성할 때와 수정할때 분기를 나눠줬다.
+      window.location.href = './createboard.html';
     })
   : null;
 
@@ -53,12 +53,11 @@ modifyBtn
 removeBtn
   ? removeBtn.addEventListener('click', () => {
       if (confirm('정말로 삭제하시겠습니까?') === true) {
+        const id = JSON.parse(localStorage.getItem('board_id'));
         // 삭제 요청
         axios.delete(`http://localhost:5000/board/${id}`).then(() => {
           window.location.href = '/';
         });
-      } else {
-        return false;
       }
     })
   : null;
