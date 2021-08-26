@@ -9,10 +9,11 @@ function makeHeader() {
     ? `<button class="login" style="display: none">로그인</button><button class="logout">로그아웃</button>`
     : `<button class="login">로그인</button><button class="logout" style="display: none">로그아웃</button>`;
 
+  /*
   const myPageBtn = getLoginSession
-    ? `<button class="mypage--btn">마이페이지</button>`
+    ? `<button class="mypage--btn" style="display: none">마이페이지</button>`
     : `<button class="mypage--btn" style="display: none">마이페이지</button>`;
-
+ */
   const headerContent = `
     <a href="/">
       <img class="logo" src="/images/main-logo-purple.jpeg" alt="메인로고" />
