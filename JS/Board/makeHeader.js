@@ -26,9 +26,9 @@ function makeHeader() {
         </button>
       </div>
       ${loginOrLogoutBtn}
-      ${myPageBtn}
-    </div>
-`;
+      </div>
+      `;
+  // ${myPageBtn}
 
   const signinContent = `
     <div class="login-box">
