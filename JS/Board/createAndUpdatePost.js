@@ -41,7 +41,7 @@ let thumbnail = '';
 
 imgInput.addEventListener('change', (e) => {
   const file = e.target.files[0];
-  console.log(e);
+
   reader.onload = (e) => {
     const img = document.createElement('img');
 
@@ -130,7 +130,6 @@ if (localStorage.getItem('board_id')) {
           title: titleInput.value,
           content: descInput.value,
         };
-        console.log(post);
 
         axios.post(`http://localhost:5000/board`, post).then(() => {
           window.location.href = '/index.html';

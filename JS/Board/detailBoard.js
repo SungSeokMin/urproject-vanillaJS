@@ -16,7 +16,6 @@ const boardId = localStorage.board_id ? JSON.parse(localStorage.board_id) : null
 
 boardId
   ? axios.get(`http://localhost:5000/board/${boardId}`, { Credential: true }).then((res) => {
-      console.log('실행');
       const { nickname, title, content } = res.data[0];
 
       if (sessionStorage.getItem('loginInfo')) {
