@@ -2,6 +2,12 @@ import { makePost } from '../JS/Board/makePost';
 import '../CSS/index.css';
 import '../CSS/reset.css';
 
+const spinner = document.querySelector('.loading');
+
+setTimeout(() => {
+  spinner.style.display = 'none';
+}, 500);
+
 const listEnd = document.querySelector('.list-end');
 
 if (window.location.pathname === '/') {
