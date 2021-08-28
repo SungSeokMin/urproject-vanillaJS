@@ -15,7 +15,7 @@ const unLikeBtn = document.querySelector('#unLike');
 const boardId = localStorage.board_id ? JSON.parse(localStorage.board_id) : null;
 
 boardId
-  ? axios.get(`http://localhost:5000/board/${boardId}`, { Credential: true }).then((res) => {
+  ? axios.get(`http://3.95.14.52:5000/board/${boardId}`, { Credential: true }).then((res) => {
       const { nickname, title, content } = res.data[0];
 
       if (sessionStorage.getItem('loginInfo')) {
@@ -55,7 +55,7 @@ removeBtn
       if (confirm('정말로 삭제하시겠습니까?') === true) {
         const id = JSON.parse(localStorage.getItem('board_id'));
         // 삭제 요청
-        axios.delete(`http://localhost:5000/board/${id}`).then(() => {
+        axios.delete(`http://3.95.14.52:5000/board/${id}`).then(() => {
           window.location.href = '/';
         });
       }
