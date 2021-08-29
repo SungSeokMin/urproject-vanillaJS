@@ -74,8 +74,10 @@ function loginControll() {
       { withCredentials: true }
     );
     const { message, nickname } = loginReq.data;
+    console.log(message, nickname);
 
     if (loginReq.status === 200 || message === 'login Ok') {
+      console.log('if문에 들어옴');
       loginBtn.style.display = 'none';
       logoutBtn.style.display = 'block';
 
@@ -87,6 +89,7 @@ function loginControll() {
 
       window.location.href = '/index.html';
     } else if (message === 'email check') {
+      console.log('email check에 들어옴');
       alert('이메일을 다시 확인해주세요.');
       return;
     } else if (message === 'password check') {
