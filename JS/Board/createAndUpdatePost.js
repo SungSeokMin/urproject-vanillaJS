@@ -101,7 +101,7 @@ if (localStorage.getItem('board_id')) {
   const id = JSON.parse(localStorage.getItem('board_id'));
   let resThumbnail = '';
   let summernoteValue = '';
-  axios.get(`http://3.95.14.52:5000/board/${id}`).then((res) => {
+  axios.get(`https://ur-project.net/board/${id}`).then((res) => {
     const summerNoteEditAria = document.querySelector('.note-editable');
     const { thumbnail: thumb, title, content } = res.data[0];
 
@@ -117,7 +117,7 @@ if (localStorage.getItem('board_id')) {
   checkBtn.addEventListener('click', async () => {
     const checkThubnail = thumbnail ? thumbnail : resThumbnail;
 
-    await axios.patch(`http://3.95.14.52:5000/board/${id}`, {
+    await axios.patch(`https://ur-project.net/board/${id}`, {
       thumbnail: checkThubnail,
       title: titleInput.value,
       content: summernoteValue.innerHTML,
@@ -142,7 +142,7 @@ if (localStorage.getItem('board_id')) {
           content: descInput.value,
         };
 
-        axios.post(`http://3.95.14.52:5000/board`, post).then(() => {
+        axios.post(`https://ur-project.net/board`, post).then(() => {
           window.location.href = '/index.html';
         });
       })

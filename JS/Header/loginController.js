@@ -66,7 +66,7 @@ function loginControll() {
     }
 
     const loginReq = await axios.post(
-      'http://3.95.14.52:5000/user/login',
+      'https://ur-project.net/user/login',
       {
         email,
         password,
@@ -102,7 +102,7 @@ function loginControll() {
     loginBtn.style.display = 'block';
     logoutBtn.style.display = 'none';
 
-    await axios.get('http://3.95.14.52:5000/user/logout', { withCredentials: true });
+    await axios.get('https://ur-project.net/user/logout', { withCredentials: true });
 
     sessionStorage.removeItem('loginInfo');
     window.location.href = '/index.html';
@@ -134,7 +134,7 @@ function loginControll() {
     }
 
     const signupReq = await axios.post(
-      'http://3.95.14.52:5000/user/signUp',
+      'https://ur-project.net/user/signUp',
       {
         email,
         nickname,

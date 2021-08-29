@@ -36,7 +36,7 @@ let end = 12;
 const listEnd = document.querySelector('.list-end');
 
 const render = async function () {
-  const reqPost = await axios.get('http://3.95.14.52:5000/board', { Credential: true });
+  const reqPost = await axios.get('https://ur-project.net/board', { Credential: true });
 
   const { data } = reqPost;
   renderList(data, start, end);

@@ -61,7 +61,7 @@ const latestBtn = document.querySelector('.latest');
 
 latestBtn.addEventListener('click', async () => {
   listEnd.setAttribute('data-value', 'latest');
-  const reqPost = await axios.get('http://3.95.14.52:5000/board', { Credential: true });
+  const reqPost = await axios.get('https://ur-project.net/board', { Credential: true });
   const { data } = reqPost;
 
   while (postContent.hasChildNodes()) {
@@ -78,7 +78,7 @@ const recommendBtn = document.querySelector('.recommend');
 
 recommendBtn.addEventListener('click', async () => {
   listEnd.setAttribute('data-value', 'recommend');
-  const reqPost = await axios.get('http://3.95.14.52:5000/board', { Credential: true });
+  const reqPost = await axios.get('https://ur-project.net/board', { Credential: true });
   const { data } = reqPost;
 
   while (postContent.hasChildNodes()) {
@@ -96,7 +96,7 @@ const myContentBtn = document.querySelector('.myContent');
 
 myContentBtn.addEventListener('click', async () => {
   listEnd.setAttribute('data-value', 'mycontent');
-  const reqPost = await axios.get('http://3.95.14.52:5000/board', { Credential: true });
+  const reqPost = await axios.get('https://ur-project.net/board', { Credential: true });
   const { data } = reqPost;
 
   while (postContent.hasChildNodes()) {
@@ -128,7 +128,7 @@ searchBtn.addEventListener('click', async () => {
     postContent.removeChild(postContent.firstChild);
   }
 
-  const searchReq = await axios.post('http://3.95.14.52:5000/board/search', {
+  const searchReq = await axios.post('https://ur-project.net/board/search', {
     title: searchValue,
   });
   const { data } = searchReq;
