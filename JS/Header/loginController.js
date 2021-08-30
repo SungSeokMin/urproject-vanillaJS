@@ -76,7 +76,7 @@ function loginControll() {
     const { message, nickname } = loginReq.data;
     console.log(message, nickname);
 
-    if (loginReq.status === 200 || message === 'login Ok') {
+    if (message === 'login Ok') {
       console.log('if문에 들어옴');
       loginBtn.style.display = 'none';
       logoutBtn.style.display = 'block';
