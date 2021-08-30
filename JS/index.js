@@ -9,8 +9,8 @@ setTimeout(() => {
 }, 500);
 
 const listEnd = document.querySelector('.list-end');
-console.log(window.location.pathname);
-if (window.location.pathname === '/index.html') {
+
+if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
   localStorage.removeItem('board_id');
   localStorage.removeItem('detailInfo');
 }
